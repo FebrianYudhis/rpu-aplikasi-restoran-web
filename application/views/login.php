@@ -35,6 +35,7 @@
         <div class="card ">
             <div class="card-header text-center"><a href="<?= base_url();?>"><img class="logo-img" src="<?= base_url();?>assets/images/logo.jpg" alt="logo"></a><span class="splash-description">Masukkan Informasi Login Anda</span></div>
             <div class="card-body">
+            <?= $this->session->flashdata('pesan'); ?>
                 <form action="<?= base_url();?>" method="POST">
                     <div class="form-group">
                         <input class="form-control form-control-lg" name="username" type="text" placeholder="Masukkan Username" autocomplete="off" value="<?= set_value('username');?>">

@@ -23,7 +23,7 @@
                             <img src="<?= base_url();?>assets/images/404.png" alt="" class="img-fluid">
                             <div class="error-section-content">
                                 <h1 class="display-3">Halaman Tidak Ditemukan</h1>
-                                <a href="<?= base_url();?>index.html" class="btn btn-secondary btn-lg">Kembali Ke Halaman Utama</a>
+                                <a href="<?= base_url();?>" class="btn btn-secondary btn-lg">Kembali Ke Halaman Utama</a>
                             </div>
                             <!-- Akhir Error -->
                         </div>
