@@ -8,6 +8,10 @@ class login extends CI_Controller {
 		
 		// Load model diawal,agar bisa dibaca
 		$this->load->model('Akun');
+
+		// Mengunci controller ini apabila sudah ada session yang didaftarkan
+		// Fungsi ini diambil dari helper yang sudah didaftarkan dari autoload
+		kunci_login();
 	}
 
 	public function index()
