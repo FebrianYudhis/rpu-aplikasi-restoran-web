@@ -65,21 +65,28 @@ class Pelanggan extends CI_Controller {
     public function selesai(){
         $this->db->select_sum('subtotal');
         $total = $this->db->get_where('order_detail',['no_invoice'=>$this->session->userdata('no_invoice')])->row_array();
-        $data = [
-            'no_invoice'=>$this->session->userdata('no_invoice'),
-            'nama_pemesan'=>$this->session->userdata('nama_pemesan'),
-            'meja'=>$this->session->userdata('username'),
-            'tanggal_pemesanan'=>$this->session->userdata('tanggal'),
-            'total'=>$total['subtotal'],
-            'status'=>"Dipesan"
-        ];
-        $this->db->insert('order',$data);
-
-        $this->session->unset_userdata('no_invoice');
-        $this->session->unset_userdata('nama_pemesan');
-        $this->session->unset_userdata('tanggal');
-
-        $this->session->set_flashdata('pesan','<div class="alert alert-success">Pesanan anda sudah ada didalam antrian</div>');
+        if($total['subtotal'] != NULL){
+            $data = [
+                'no_invoice'=>$this->session->userdata('no_invoice'),
+                'nama_pemesan'=>$this->session->userdata('nama_pemesan'),
+                'meja'=>$this->session->userdata('username'),
+                'tanggal_pemesanan'=>$this->session->userdata('tanggal'),
+                'total'=>$total['subtotal'],
+                'status'=>"Dipesan"
+            ];
+            $this->db->insert('order',$data);
+    
+            $this->session->unset_userdata('no_invoice');
+            $this->session->unset_userdata('nama_pemesan');
+            $this->session->unset_userdata('tanggal');
+    
+            $this->session->set_flashdata('pesan','<div class="alert alert-success">Pesanan anda sudah ada didalam antrian</div>');
+        }else{
+            $this->session->unset_userdata('no_invoice');
+            $this->session->unset_userdata('nama_pemesan');
+            $this->session->unset_userdata('tanggal');
+            $this->session->set_flashdata('pesan','<div class="alert alert-success">No invoice direset</div>');
+        }
         redirect('Pelanggan#pemesanan');
     }
 
