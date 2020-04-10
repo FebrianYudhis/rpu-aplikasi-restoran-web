@@ -62,7 +62,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- Javascript -->
     
-    <script src="<?= base_url();?>assets/libs/js/jquery-2.2.4.min.js"></script>
+    <script src="<?= base_url();?>assets/libs/js/jquery-3.4.1.min.js"></script>
 	<script src="<?= base_url();?>assets/libs/js/bootstrap-4.1.3.min.js"></script>
     <script src="<?= base_url();?>assets/libs/js/wow.min.js"></script>
     <script src="<?= base_url();?>assets/libs/js/owl-carousel.min.js"></script>
@@ -72,7 +72,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         $("#pilih_menu").change(function(){
             menu=$("#pilih_menu").val();
             $.ajax({
-                url:"<?= base_url();?>pelanggan/ambildata/"+menu,
+                url:"<?= base_url();?>Pelanggan/ambildata/"+menu,
                 success:function(msg){
                     data=msg.split("|");
                     $("#id_menu").val(data[0]);

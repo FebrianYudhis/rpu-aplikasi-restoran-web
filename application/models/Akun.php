@@ -32,4 +32,13 @@ class Akun extends CI_MODEL
             redirect();
         }
     }
+
+    public function keluar(){
+        $this->session->unset_userdata('id_akses');
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('nama');
+        $this->session->unset_userdata('login');
+        $this->session->set_flashdata('pesan','<div class="alert alert-success">Berhasil keluar</div>');
+        redirect();
+    }
 }

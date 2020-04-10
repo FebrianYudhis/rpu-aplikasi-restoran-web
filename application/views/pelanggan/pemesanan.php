@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-lg-12">
                     <?= $this->session->flashdata('pesan'); ?>
-                    <form action="<?= base_url();?>pelanggan" method="POST">
+                    <form action="<?= base_url();?>Pelanggan" method="POST">
                         <div class="form-group">
                             <label class="text-primary">Nama pemesan :</label>
                             <input type="text" class="form-control" placeholder="Masukkan nama pemesan" name="nama_pemesan">

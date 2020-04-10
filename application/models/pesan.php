@@ -1,6 +1,6 @@
 <?php
 
-class pesan extends CI_MODEL
+class Pesan extends CI_MODEL
 {
     function tambah_pesanan(){
         $id_menu = $this->input->post('id_menu');
@@ -18,7 +18,7 @@ class pesan extends CI_MODEL
         ];
         $this->db->insert('order_detail',$data);
         $this->session->set_flashdata('pesan','<div class="alert alert-success">Berhasil ditambah</div>');
-        redirect('pelanggan#pemesanan');
+        redirect('Pelanggan#pemesanan');
     }
 }
 ?>

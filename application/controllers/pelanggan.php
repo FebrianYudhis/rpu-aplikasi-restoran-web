@@ -1,12 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class pelanggan extends CI_Controller {
+class Pelanggan extends CI_Controller {
     public function __construct(){
         parent::__construct();
         apakah_sudah_masuk();
         pelanggan_only();
-        $this->load->model('pesan');
+        $this->load->model('Pesan');
+        $this->load->model('Akun');
     }
 
     public function index(){
@@ -28,7 +29,7 @@ class pelanggan extends CI_Controller {
                 $this->session->set_userdata(['nama_pemesan'=>$this->input->post('nama_pemesan')]);
                 $this->session->set_userdata(['no_invoice'=> random_string('alnum',8)]);
                 $this->session->set_userdata(['tanggal'=> date('Y-m-d')]);
-                redirect('pelanggan#pemesanan');
+                redirect('Pelanggan#pemesanan');
             }
         }else{
             $this->form_validation->set_rules('menu','menu','required');
@@ -39,7 +40,7 @@ class pelanggan extends CI_Controller {
                 $this->load->view('pelanggan/pemesanan2',$data);
                 $this->load->view('pelanggan/akhir');
             }else{
-                $this->pesan->tambah_pesanan();
+                $this->Pesan->tambah_pesanan();
             }
         }
             
@@ -58,7 +59,7 @@ class pelanggan extends CI_Controller {
             $this->db->delete('order_detail',['no_order'=>$a]);
             $this->session->set_flashdata('pesan','<div class="alert alert-success">Berhasil dihapus</div>');
         }
-        redirect('pelanggan#pemesanan');
+        redirect('Pelanggan#pemesanan');
     }
 
     public function selesai(){
@@ -79,6 +80,10 @@ class pelanggan extends CI_Controller {
         $this->session->unset_userdata('tanggal');
 
         $this->session->set_flashdata('pesan','<div class="alert alert-success">Pesanan anda sudah ada didalam antrian</div>');
-        redirect('pelanggan#pemesanan');
+        redirect('Pelanggan#pemesanan');
+    }
+
+    public function keluar(){
+        $this->Akun->keluar();
     }
 }

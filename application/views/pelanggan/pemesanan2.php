@@ -35,7 +35,7 @@
                     <p class="form-control"><?= $this->session->userdata('tanggal');?></p>
                 </div>
             </div>
-            <form method="POST" action="<?= base_url();?>pelanggan#pemesanan">
+            <form method="POST" action="<?= base_url();?>Pelanggan#pemesanan">
                 <div class="row">
                     <input type="hidden" readonly value="" id="id_menu" name="id_menu">
                     <div class="form-group">
@@ -81,7 +81,7 @@
                             <td>Rp. <?= $getmenu['harga'];?></td>
                             <td><?= $k['jumlah'];?></td>
                             <td>Rp. <?= $k['subtotal'];?></td>
-                            <td><a href="<?= base_url('pelanggan/hapus/').$k['no_order'];?>" class="badge badge-danger">Hapus</a></td>
+                            <td><a href="<?= base_url('Pelanggan/hapus/').$k['no_order'];?>" class="badge badge-danger">Hapus</a></td>
                         </tr>
                         <?php
                             $no++;
@@ -100,7 +100,7 @@
             </div>
 
             <div class="row col-lg-12 mt-3">
-            <a href="<?= base_url();?>pelanggan/selesai" class="btn btn-success form-control">Selesai</a>
+            <a href="<?= base_url();?>Pelanggan/selesai" class="btn btn-success form-control">Selesai</a>
             </div>
         </div>
     </section>
