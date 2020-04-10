@@ -22,3 +22,43 @@ function kunci_login()
         redirect($namaakses['nama_akses']);
     }
 }
+
+function admin_only(){
+    $ci = get_instance();
+    if($ci->session->userdata('id_akses') != 1){
+        $ci->session->set_flashdata('pesan','<div class="alert alert-danger">Akses Ditolak !</div>');
+        redirect();
+    }
+}
+
+function pemilik_only(){
+    $ci = get_instance();
+    if($ci->session->userdata('id_akses') != 2){
+        $ci->session->set_flashdata('pesan','<div class="alert alert-danger">Akses Ditolak !</div>');
+        redirect();
+    }
+}
+
+function kasir_only(){
+    $ci = get_instance();
+    if($ci->session->userdata('id_akses') != 3){
+        $ci->session->set_flashdata('pesan','<div class="alert alert-danger">Akses Ditolak !</div>');
+        redirect();
+    }
+}
+
+function pelayan_only(){
+    $ci = get_instance();
+    if($ci->session->userdata('id_akses') != 4){
+        $ci->session->set_flashdata('pesan','<div class="alert alert-danger">Akses Ditolak !</div>');
+        redirect();
+    }
+}
+
+function pelanggan_only(){
+    $ci = get_instance();
+    if($ci->session->userdata('id_akses') != 5){
+        $ci->session->set_flashdata('pesan','<div class="alert alert-danger">Akses Ditolak !</div>');
+        redirect();
+    }
+}
