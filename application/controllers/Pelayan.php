@@ -142,7 +142,8 @@ class Pelayan extends CI_Controller {
         $cek = $this->db->get_where('order',['no_invoice'=>$a])->row_array();
         if($cek['status'] == "Dipesan"){
             $data=[
-                'status'=>"Dikonfirmasi"
+                'status'=>"Dikonfirmasi",
+                'dikelola'=>$this->session->userdata('username')
             ];
             $this->db->where('no_invoice',$cek['no_invoice']);
             $this->db->update('order',$data);
@@ -168,7 +169,8 @@ class Pelayan extends CI_Controller {
         $total = $this->db->get_where('order_detail',['no_invoice'=>$a])->row_array();
         $this->session->set_flashdata('pesan','<div class="alert alert-success">Pesanan anda sudah ada didalam antrian</div>');
         $data = [
-            'total'=>$total['subtotal']
+            'total'=>$total['subtotal'],
+            'dikelola'=>$this->session->userdata('username')
         ];
         $this->db->where('no_invoice',$a);
         $this->db->update('order',$data);
@@ -185,7 +187,8 @@ class Pelayan extends CI_Controller {
                 'meja'=>$this->session->userdata('meja'),
                 'tanggal_pemesanan'=>$this->session->userdata('tanggal'),
                 'total'=>$total['subtotal'],
-                'status'=>"Dipesan"
+                'status'=>"Dipesan",
+                'dikelola'=>$this->session->userdata('username')
             ];
             $this->db->insert('order',$data);
     
