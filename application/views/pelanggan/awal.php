@@ -47,7 +47,7 @@
                             <li><a href="#pemesanan">Pesan</a>
                             <li><a href="#informasi">Informasi</a></li>
                             <li>|</li>
-                            <li><a href="#"><?= $this->session->userdata('username');?></a>
+                            <li><a href="#"><?= $this->session->userdata('nama');?></a>
                                 <ul class="sub-menu">
                                     <li><a href="<?= base_url();?>Pelanggan/keluar">Keluar</a></li>
                                 </ul>

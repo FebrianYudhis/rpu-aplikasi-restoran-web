@@ -58,7 +58,7 @@
                 <div class="col-lg-12">
                         <?= $this->session->flashdata('pesan');?>
                 </div>
-                <table class="table table-hover table-bordered text-success">
+                <table class="table table-hover table-bordered text-success table-responsive-sm">
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
