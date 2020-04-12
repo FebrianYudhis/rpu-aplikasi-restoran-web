@@ -53,7 +53,7 @@ class Pelayan extends CI_Controller {
         }else{
             $this->form_validation->set_rules('menu','menu','required');
             $this->form_validation->set_rules('harga','harga','required');
-            $this->form_validation->set_rules('jumlah','is_natural_no_zero|required');
+            $this->form_validation->set_rules('jumlah','jumlah','is_natural_no_zero|required');
             if($this->form_validation->run()==false){
                 $this->load->view('template/pelayan/header',$data);
                 $this->load->view('pelayan/tambah2');
@@ -81,7 +81,7 @@ class Pelayan extends CI_Controller {
         if($query['status'] == "Dipesan"){
             $this->form_validation->set_rules('menu','menu','required');
             $this->form_validation->set_rules('harga','harga','required');
-            $this->form_validation->set_rules('jumlah','is_natural_no_zero|required');
+            $this->form_validation->set_rules('jumlah','jumlah','is_natural_no_zero|required');
             if($this->form_validation->run()==false){
                 $this->load->view('template/pelayan/header',$data);
                 $this->load->view('pelayan/edit');

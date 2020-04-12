@@ -34,7 +34,7 @@ class Pelanggan extends CI_Controller {
         }else{
             $this->form_validation->set_rules('menu','menu','required');
             $this->form_validation->set_rules('harga','harga','required');
-            $this->form_validation->set_rules('jumlah','is_natural_no_zero|required');
+            $this->form_validation->set_rules('jumlah','jumlah','is_natural_no_zero|required');
             if($this->form_validation->run()==false){
                 $this->load->view('pelanggan/awal',$data);
                 $this->load->view('pelanggan/pemesanan2',$data);
