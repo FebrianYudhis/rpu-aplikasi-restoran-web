@@ -37,7 +37,7 @@
                                 <div class="nav-user-info">
                                     <h5 class="mb-0 text-white nav-user-name"><?= $this->session->userdata('username');?></h5>
                                 </div>
-                                <a class="dropdown-item" href="<?= base_url();?>Pelayan/keluar"><i class="fas fa-power-off mr-2"></i>Keluar</a>
+                                <a class="dropdown-item" href="<?= base_url();?>Pemilik/keluar"><i class="fas fa-power-off mr-2"></i>Keluar</a>
                             </div>
                         </li>
                     </ul>
