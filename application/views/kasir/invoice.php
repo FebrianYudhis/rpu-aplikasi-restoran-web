@@ -79,9 +79,7 @@ $cek = $lihat->row_array();
             </div>
             <div class="row">
                 <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <a href="<?= base_url('Pelayan/edit/').$cek['no_invoice'];?>" class="col-md-3 btn btn-info">Edit</a>
-                    <a href="<?= base_url('Pelayan/hapus/').$cek['no_invoice'];?>" class="col-md-3 btn btn-danger">Hapus</a>
-                    <a href="<?= base_url('Pelayan/konfirmasi/').$cek['no_invoice'];?>" class="col-md-3 btn btn-success">Konfirmasi</a>
+                    <a href="<?= base_url('Kasir/konfirmasi/').$cek['no_invoice'];?>" class="col-lg-12 btn btn-success">Sudah dibayar</a>
                 </div>
             </div>
         </div>
