@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <div class="section-top">
-                        <h3><span class="style-change">Kami menyajikan</span> <br>Makanan yang</h3>
+                        <h3><span class="style-change">Kami menyajikan</span> <br>Makanan yang enak</h3>
                     </div>
                 </div>
             </div>

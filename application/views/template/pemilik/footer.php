@@ -80,6 +80,10 @@
                 }
             });
         });
+
+        $(document).ready( function () {
+            $('#listmenu').DataTable();
+        } );
     </script>
 </body>
 
