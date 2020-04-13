@@ -47,65 +47,7 @@
                 ]
             } );
         } );
-
-        $("#dari").change(function(){
-            dari=$("#dari").val();
-            if($("#sampai").val()){
-                sampai=$("#sampai").val();  
-            }else{
-                sampai=0
-            }
-            $.ajax({
-                url:"<?= base_url();?>/Pemilik/cek/"+dari+"/"+sampai,
-                dataType:'json',
-                success:function(data){
-                    var baris='';
-                    for(var i=0;i<data.length;i++){
-                        var no = i+1;
-                        baris += '<tr>'+
-                                    '<td>'+ no +'</td>'+
-                                    '<td>'+ data[i].no_invoice +'</td>'+
-                                    '<td>'+ data[i].nama_pemesan +'</td>'+
-                                    '<td>'+ data[i].meja +'</td>'+
-                                    '<td>'+ data[i].tanggal_pemesanan +'</td>'+
-                                    '<td>'+ data[i].total +'</td>'+
-                                    '<td>'+ data[i].dikelola +'</td>'+
-                                '</tr>';
-                        $('#target').html(baris);
-                    }
-                }
-            });
-        });
-
-        $("#sampai").change(function(){
-            if(dari=$("#dari").val()){
-                dari=$("#dari").val();
-            }else{
-                dari=0
-            }
-            sampai=$("#sampai").val();
-            $.ajax({
-                url:"<?= base_url();?>/Pemilik/cek/"+dari+"/"+sampai,
-                dataType:'json',
-                success:function(data){
-                    var baris='';
-                    for(var i=0;i<data.length;i++){
-                        var no = i+1;
-                        baris += '<tr>'+
-                                    '<td>'+ no +'</td>'+
-                                    '<td>'+ data[i].no_invoice +'</td>'+
-                                    '<td>'+ data[i].nama_pemesan +'</td>'+
-                                    '<td>'+ data[i].meja +'</td>'+
-                                    '<td>'+ data[i].tanggal_pemesanan +'</td>'+
-                                    '<td>'+ data[i].total +'</td>'+
-                                    '<td>'+ data[i].dikelola +'</td>'+
-                                '</tr>';
-                        $('#target').html(baris);
-                    }
-                }
-            });
-        });
-
+        
         $(document).ready( function () {
             $('#listmenu').DataTable();
         } );

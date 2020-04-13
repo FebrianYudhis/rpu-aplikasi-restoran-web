@@ -45,21 +45,24 @@
                                 <h5 class="mb-0">Daftar riwayat transaksi</h5>
                             </div>
 
-                            <div class="row ml-2 mt-4">
-                                <?= $this->session->flashdata('pesan');?>
-                                <div class="col-lg-5">
-                                    <div class="form-group">
-                                        <label>Mulai Tanggal</label>
-                                        <input type="date" class="form-control" id="dari">
+                            <form action="<?= base_url('Pemilik');?>" method="POST">
+                                <div class="row ml-2 mt-4">
+                                    <?= $this->session->flashdata('pesan');?>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Mulai Tanggal</label>
+                                            <input type="date" class="form-control" name="dari">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-5">
-                                    <div class="form-group">
-                                        <label>Sampai Tanggal</label>
-                                        <input type="date" class="form-control" id="sampai">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label>Sampai Tanggal</label>
+                                            <input type="date" class="form-control" name="sampai">
+                                        </div>
                                     </div>
+                                    <button type="submit" class="btn btn-primary">Lihat</button>
                                 </div>
-                            </div>
+                            </form>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="listtransaksi" class="table table-bordered table-hover table-responsive-sm" style="width:100%">
