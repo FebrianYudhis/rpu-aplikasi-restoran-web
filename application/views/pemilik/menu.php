@@ -16,14 +16,14 @@
                         <div class="form-group">
                             <label>Jenis menu:</label>
                             <select class="form-control" name="jenis">
-                            <option value="Makanan">Makanan</option>
-                            <option value="Minuman">Minuman</option>
+                                <option value="Makanan">Makanan</option>
+                                <option value="Minuman">Minuman</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Harga :</label>
                             <input type="number" class="form-control" placeholder="Masukkan harga" name="harga" value="<?= set_value('harga');?>">
-                            <small class="text-danger"><?= form_error('nama_menu');?></small>
+                            <small class="text-danger"><?= form_error('harga');?></small>
                         </div>
                         <div class="form-group">
                             <label>Gambar :</label>

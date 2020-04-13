@@ -52,9 +52,6 @@ class Pemilik extends CI_Controller {
             $this->load->view('pemilik/menu');
             $this->load->view('template/pemilik/footer');
         }else{
-            $pisah = $array = explode('.', $_FILES['gambar']['name']);
-            $extension = end($pisah);
-            $_FILES['gambar']['name'] = random_string('alnum', 10).'.'.$extension;
             $a = $this->input->post('nama_menu');
             $b = $this->input->post('jenis');
             $c = $this->input->post('harga');
@@ -64,12 +61,15 @@ class Pemilik extends CI_Controller {
                     'nama_menu'=>$a,
                     'jenis'=>$b,
                     'harga'=>$c,
-                    'gambar'=>'default.png'
+                    'gambar'=>'default.jpg'
                 ];
                 $this->db->insert('menu',$data);
                 $this->session->set_flashdata('pesan','<div class="alert alert-success">Menu berhasil ditambahkan</div>');
                 redirect('Pemilik/list');
             }else{
+                $pisah = $array = explode('.', $_FILES['gambar']['name']);
+                $extension = end($pisah);
+                $_FILES['gambar']['name'] = random_string('alnum', 10).'.'.$extension;
                 $config['upload_path']= "assets/images/menu";
                 $config['allowed_types']= 'jpg|png';
                 $config['max_size']= '2048';
