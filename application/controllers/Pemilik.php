@@ -160,7 +160,9 @@ class Pemilik extends CI_Controller {
                     redirect('Pemilik/list');
                 }else{
                     $unlink = $this->db->get_where('menu',['id_menu'=>$e])->row_array();
-                    unlink('assets/images/menu/'.$unlink['gambar']);
+                    if(!$unlink['gambar']=='default.png'){
+                        unlink('assets/images/menu/'.$unlink['gambar']);
+                    }
                     $data =[
                         'nama_menu'=>$a,
                         'jenis'=>$b,
