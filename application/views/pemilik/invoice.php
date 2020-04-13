@@ -6,7 +6,7 @@ $cek = $lihat->row_array();
         <div class="container-fluid dashboard-content">
             <div class="row">
                 <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
+                    <div class="card" id="printinvoice">
                         <div class="card-header p-4">
                             <a class="pt-2 d-inline-block" href="index.html">hayu K enyang</a>
                             <div class="float-right"> <h3 class="mb-0">Invoice #<?= $cek['no_invoice'];?></h3>
@@ -80,7 +80,7 @@ $cek = $lihat->row_array();
             <div class="row" id="tombolinvoice">
                 <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
                     <a href="#" class="col-lg-4 btn btn-success" onClick="window.print();">Print</a>
-                    <a href="<?= base_url('Kasir/konfirmasi/').$cek['no_invoice'];?>" class="col-lg-4 btn btn-primary">Sudah dibayar</a>
+                    <a href="<?= base_url('Pemilik');?>" class="col-lg-4 btn btn-info">Kembali</a>
                 </div>
             </div>
         </div>

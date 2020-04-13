@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= base_url();?>assets/libs/css/style.css">
     <link rel="stylesheet" href="<?= base_url();?>assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="<?= base_url();?>assets/vendor/datatables/datatables.css">
+    <link rel="stylesheet" href="<?= base_url();?>assets/libs/css/print.css">
     <title><?= $judul;?></title>
 </head>
 

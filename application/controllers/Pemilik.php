@@ -73,6 +73,21 @@ class Pemilik extends CI_Controller {
         }
     }
 
+    public function invoice($a){
+        $data['judul'] = "Invoice";
+        $data['lihat'] = $this->db->get_where('order',['no_invoice'=>$a]);
+        $cek = $data['lihat']->row_array();
+        $status = $cek['status'];
+        if($status == "Sudah dibayar"){
+            $this->load->view('template/Pemilik/header',$data);
+            $this->load->view('Pemilik/invoice',$data);
+            $this->load->view('template/Pemilik/footer');
+        }else{
+            $this->session->set_flashdata('pesan','<div class="alert alert-danger col-lg-12">Akses ditolak</div>');
+            redirect('Pemilik');
+        }
+    }
+
     public function list(){
         $data['judul'] = "List menu";
         $data['menu'] = $this->db->get('menu');

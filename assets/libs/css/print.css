@@ -1,0 +1,9 @@
+@media print {
+	#printinvoice {
+		display: block;
+	}
+
+	#tombolinvoice {
+		display: none;
+	}
+}

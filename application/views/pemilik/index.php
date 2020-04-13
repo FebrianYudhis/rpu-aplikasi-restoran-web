@@ -46,6 +46,7 @@
                             </div>
 
                             <div class="row ml-2 mt-4">
+                                <?= $this->session->flashdata('pesan');?>
                                 <div class="col-lg-5">
                                     <div class="form-group">
                                         <label>Mulai Tanggal</label>
@@ -71,6 +72,7 @@
                                                 <th>Tanggal pemesanan</th>
                                                 <th>Total</th>
                                                 <th>Dikelola</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody id="target">
@@ -86,6 +88,7 @@
                                                 <td><?= $so['tanggal_pemesanan'];?></td>
                                                 <td>Rp. <?= $so['total'];?></td>
                                                 <td><?= $so['dikelola'];?></td>
+                                                <td><a href="<?= base_url('Pemilik/invoice/').$so['no_invoice'];?>" class="badge badge-info">Cek invoice</a></td>
                                             </tr>
                                             <?php
                                                 $no++;
@@ -95,6 +98,7 @@
                                     </table>
                                 </div>
                             </div>
+                            <p class="text-warning ml-2"><i>Sebelum cetak/export file,harap perhatikan kolom yang disembunyikan</i></p>
                         </div>
                     </div>
                 </div>

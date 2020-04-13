@@ -13,12 +13,37 @@
     <script src="<?= base_url();?>assets/vendor/datatables/vfs_fonts.js"></script>
     <script src="<?= base_url();?>assets/vendor/datatables/buttons.html5.min.js"></script>
     <script src="<?= base_url();?>assets/vendor/datatables/buttons.print.min.js"></script>
+    <script src="<?= base_url();?>assets/vendor/datatables/buttons.colVis.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#listtransaksi').DataTable( {
                 dom: 'Bfrtip',
                 buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
+                    {
+                        extend: 'copyHtml5',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    'colvis'
                 ]
             } );
         } );

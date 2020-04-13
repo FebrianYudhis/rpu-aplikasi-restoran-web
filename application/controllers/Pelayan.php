@@ -108,7 +108,6 @@ class Pelayan extends CI_Controller {
             $this->session->set_flashdata('pesan','<div class="alert alert-danger col-lg-12">Akses ditolak</div>');
             redirect('Pelayan/list');
         }
-            
     }
 
     public function hapuspesanan($a){
