@@ -51,6 +51,72 @@ class Admin extends CI_Controller {
         $this->load->view('template/Admin/footer');
     }
 
+    public function tambah(){
+        $data['judul'] = "Tambah akun";
+        $data['akses']= $this->db->get('akses');
+        $this->form_validation->set_rules('username','username','is_unique[akun.username]|required');
+        $this->form_validation->set_rules('nama','nama','required');
+        $this->form_validation->set_rules('password','password','required|min_length[8]');
+        if($this->form_validation->run()==false){
+            $this->load->view('template/admin/header',$data);
+            $this->load->view('admin/akun',$data);
+            $this->load->view('template/admin/footer');
+        }else{
+            $a = $this->input->post('username');
+            $b = $this->input->post('nama');
+            $c = $this->input->post('password');
+            $d = $this->input->post('id_akses');
+            
+            $data = [
+                'nama_lengkap' => $b,
+                'username'=> $a,
+                'password'=>md5($c),
+                'id_akses'=> $d
+            ];
+            $a = $this->db->insert('akun',$data);
+            if($a){
+                $this->session->set_flashdata('pesan','<div class="alert alert-success col-lg-10">Akun berhasil dibuat</div>');
+                redirect('Admin/list');
+            }else{
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger col-lg-12">Akun gagal dibuat</div>');
+                redirect('Admin/tambah');
+            }
+        }
+    }
+
+    public function edit($a){
+        $data['judul'] = "Edit akun";
+        $data['akses']= $this->db->get('akses');
+        $data['akun'] = $this->db->get_where('akun',['username'=>$a])->row_array();
+        $this->form_validation->set_rules('nama','nama','required');
+        $this->form_validation->set_rules('password','password','required|min_length[8]');
+        if($this->form_validation->run()==false){
+            $this->load->view('template/admin/header',$data);
+            $this->load->view('admin/edit',$data);
+            $this->load->view('template/admin/footer');
+        }else{
+            $a = $this->input->post('username');
+            $b = $this->input->post('nama');
+            $c = $this->input->post('password');
+            $d = $this->input->post('id_akses');
+            
+            $data = [
+                'nama_lengkap' => $b,
+                'password'=>md5($c),
+                'id_akses'=> $d
+            ];
+            $this->db->where('username',$a);
+            $isi = $this->db->update('akun',$data);
+            if($isi){
+                $this->session->set_flashdata('pesan','<div class="alert alert-success col-lg-12">Akun berhasil diubah</div>');
+                redirect('Admin/list');
+            }else{
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger col-lg-12">Akun gagal diubah</div>');
+                redirect('Admin/list');
+            }
+        }
+    }
+
     public function invoice($a){
         $data['judul'] = "Invoice";
         $data['lihat'] = $this->db->get_where('order',['no_invoice'=>$a]);

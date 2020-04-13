@@ -9,7 +9,7 @@ class Akun extends CI_MODEL
         $password = $this->input->post('password');
         $cek = [
             'username'=> $username,
-            'password' => $password
+            'password' => md5($password)
         ];
         // Mengecek,apakah ada didatabase data form yang dimasukkan sebelumya
         $cek_array = $this->db->get_where('akun',$cek)->row_array();
