@@ -61,7 +61,7 @@ class Pemilik extends CI_Controller {
                     'nama_menu'=>$a,
                     'jenis'=>$b,
                     'harga'=>$c,
-                    'gambar'=>'default.jpg'
+                    'gambar'=>'default.png'
                 ];
                 $this->db->insert('menu',$data);
                 $this->session->set_flashdata('pesan','<div class="alert alert-success">Menu berhasil ditambahkan</div>');
