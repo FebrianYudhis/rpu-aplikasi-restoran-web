@@ -100,9 +100,9 @@ class Pemilik extends CI_Controller {
         $cek = $data['lihat']->row_array();
         $status = $cek['status'];
         if($status == "Sudah dibayar"){
-            $this->load->view('template/Pemilik/header',$data);
-            $this->load->view('Pemilik/invoice',$data);
-            $this->load->view('template/Pemilik/footer');
+            $this->load->view('template/pemilik/header',$data);
+            $this->load->view('pemilik/invoice',$data);
+            $this->load->view('template/pemilik/footer');
         }else{
             $this->session->set_flashdata('pesan','<div class="alert alert-danger col-lg-12">Akses ditolak</div>');
             redirect('Pemilik');
@@ -180,9 +180,14 @@ class Pemilik extends CI_Controller {
     public function hapus($a){
         $unlink = $this->db->get_where('menu',['id_menu'=>$a])->row_array();
         unlink('assets/images/menu/'.$unlink['gambar']);
-        $this->db->delete('menu',['id_menu'=>$a]);
-        $this->session->set_flashdata('pesan','<div class="alert alert-success">Menu berhasil dihapus</div>');
-        redirect('Pemilik/list');
+        $a = $this->db->delete('menu',['id_menu'=>$a]);
+        if($a){
+            $this->session->set_flashdata('pesan','<div class="alert alert-success">Menu berhasil dihapus</div>');
+            redirect('Pemilik/list');
+        }else{
+            $this->session->set_flashdata('pesan','<div class="alert alert-danger">Menu gagal dihapus,terikat dengan aplikasi</div>');
+            redirect('Pemilik/list');
+        }
     }
 
     public function keluar(){
