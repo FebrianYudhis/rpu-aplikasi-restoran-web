@@ -46,9 +46,9 @@ class Admin extends CI_Controller {
     public function list(){
         $data['judul'] = "List akun";
         $data['akun'] = $this->db->get('akun');
-        $this->load->view('template/Admin/header',$data);
-        $this->load->view('Admin/list',$data);
-        $this->load->view('template/Admin/footer');
+        $this->load->view('template/admin/header',$data);
+        $this->load->view('admin/list',$data);
+        $this->load->view('template/admin/footer');
     }
 
     public function tambah(){
