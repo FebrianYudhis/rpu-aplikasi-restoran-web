@@ -1,70 +1,31 @@
 ###################
-What is CodeIgniter
+Tentang
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Repo ini berisikan project aplikasi restoran dengan minim fitur karena terbatas waktu dan dimaksud kan untuk tugas akhir pengganti UKK Nasional. Seperti diketahui,keadaan sekarang membuat UN maupun UKK Nasional terancam dihapus,dan yah mari doakan keadaan sekarang segera membaik.
 
 *******************
-Release Information
+Jenis Repository
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
-
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
-
-*******************
-Server Requirements
-*******************
-
-PHP version 5.6 or newer is recommended.
-
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+| Repo ini memiliki prefix "rp" yang berarti "repository pribadi".
+| Artinya repository ini di khususkan penggunaan pribadi pemilik repository. 
+| Berada di github publik sebagai bentuk arsip.
+| Jika ingin melakukan modifikasi silahkan sesuaikan dengan environment anda.
 
 ************
-Installation
+Instalasi
 ************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
+| 1.Jalankan diterminal "git clone https://github.com/FebrianYudhis/rp-aplikasi-restoran-web.git"
+| 2.Buat database dan import sql file "BUKA FOLDER INI/aplikasi.sql"
+| 3.Edit file "application/config/database.php" dan "application/config/config.php" sesuai environment anda
+| 4.Buat akun baru secara manual di database atau masukkan (username : admin ,password : 12345678 )
+
+Anda dapat menggunakan akun admin untuk menambahkan ROLE lainnya.
 
 *******
 License
 *******
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+The MIT License (MIT).
