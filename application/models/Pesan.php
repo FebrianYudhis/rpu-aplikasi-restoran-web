@@ -59,4 +59,3 @@ class Pesan extends CI_MODEL
         redirect('Pelayan/edit/'.$a);
     }
 }
-?>
